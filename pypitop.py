@@ -45,9 +45,11 @@ class PypiTop(object):
             print ('Audience: {0}'.format(audience).replace(
                    'Intended Audience ::', ''))
 
+        index = 1
         for pkg, download in self.toppkgs:
             if audience is None or pkg in self.auds_pkgs[audience]:
-                print '{0}: {1} downloads'.format(pkg, download)
+                print '{0}. {1}: {2} downloads'.format(index, pkg, download)
+                index += 1
 
     def display_all(self):
         for aud in itertools.chain([None], MAIN_AUDIENCES):
